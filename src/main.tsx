@@ -1,0 +1,26 @@
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+
+import Home from "./pages/home/home.tsx";
+import Login from "./pages/auth/login.tsx";
+import Signup from "./pages/auth/signup.tsx";
+import About from "./pages/home/about.tsx";
+import Chat from "./pages/chat/chat.tsx";
+import Test from "./test.tsx";
+
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Login" element={<Login />}></Route>
+        <Route path="/Signup" element={<Signup />}></Route>
+        <Route path="/About" element={<About />}></Route>
+        <Route path="/Chat" element={<Chat />}></Route>
+        <Route path="/Test" element={<Test />}></Route>
+      </Routes>
+    </BrowserRouter>
+  </StrictMode>
+);
