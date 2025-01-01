@@ -16,7 +16,7 @@ const Login = () => {
       ></img>
       <Lownav></Lownav>
 
-      <div className=" absolute right-0 left-0 top-0 bottom-0 m-auto min-w-[500px] min-h-[100px] w-[500px] h-[40vh] bg-[#222222] rounded-xl">
+      <div className=" absolute right-0 left-0 top-0 bottom-0 m-auto min-w-[500px] min-h-[500px] w-[35vw] h-[35vh] bg-[#222222] rounded-xl">
         <div className=" w-full h-full flex flex-col justify-center items-center gap-8 p-8">
           <div className="flex flex-col gap-2">
             <div>Email</div>
@@ -56,6 +56,7 @@ const Login = () => {
           >
             login
           </button>
+          <a href="/signup">signup?</a>
         </div>
       </div>
     </div>

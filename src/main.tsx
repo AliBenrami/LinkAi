@@ -10,6 +10,11 @@ import About from "./pages/home/about.tsx";
 import Chat from "./pages/chat/chat.tsx";
 import Test from "./test.tsx";
 
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>

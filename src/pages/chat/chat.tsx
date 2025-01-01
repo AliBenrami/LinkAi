@@ -1,6 +1,9 @@
 import { useState, useRef } from "react";
 import { generateContent } from "../generateAiContent/genAi";
 import upload from "../../assets/upload.png";
+import Account from "./account";
+
+import SubmitIcon from "@mui/icons-material/ArrowUpward";
 
 interface messageInterface {
   question: string;
@@ -78,7 +81,8 @@ const Chat = () => {
 
   return (
     <div className=" h-screen w-full">
-      <div className=" h-screen w-full flex flex-col gap-[1rem] pb-[10rem] pt-[4rem] pl-16 pr-16 overflow-y-auto ">
+      <Account classname=" fixed right-0 p-[1rem]"></Account>
+      <div className=" h-screen w-full flex flex-col gap-[1rem] pb-[10rem] pt-[6rem] pl-16 pr-16 overflow-y-auto ">
         {content.map(message)}
       </div>
       <div className=" absolute flex gap-[25px] bottom-[2rem] h-[5rem] justify-center items-center w-[-webkit-fill-available] w-[-moz-available] ">
@@ -101,13 +105,13 @@ const Chat = () => {
           }}
         ></textarea>
         <button
-          className=" w-[64px] h-[64px] rounded-[.5cm] flex justify-center items-center"
+          className=" w-[76px] h-[76px] rounded-[.5cm] flex justify-center items-center"
           onClick={() => {
             updateContent();
             clearInput();
           }}
         >
-          <img className=" w-[75%] h-[75%]" src={upload}></img>
+          <SubmitIcon className=" w-3/4 h-3/4"></SubmitIcon>
         </button>
       </div>
     </div>
