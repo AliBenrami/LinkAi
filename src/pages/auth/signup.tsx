@@ -1,12 +1,45 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Lownav from "../lowNav";
 import background from "../../assets/appBackground-2.svg";
-useState;
+import { LoginCheck, supabase } from "./supabaseAuth";
 
 const Signup = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPasword] = useState<string>("");
   const [redundantPassword, setRedundantPassword] = useState("");
+
+  const [SignupError, setSignupError] = useState<string>();
+
+  useEffect(() => {
+    LoginCheck("/chat", null);
+  }, []);
+
+  const SubmitSignUp = async () => {
+    if (
+      email.length === 0 ||
+      email.split("@")[email.split("@").length - 1].toLowerCase() !==
+        "gmail.com" ||
+      password.length === 0 ||
+      password !== redundantPassword
+    ) {
+      setSignupError("error email or password dose not meet req");
+      return;
+    }
+    //auth
+
+    const { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: password,
+    });
+
+    if (error) {
+      setSignupError(error.message);
+    } else {
+      console.log(data);
+    }
+
+    location.href = "/chat";
+  };
 
   return (
     <div className=" overflow-hidden h-[100vh] m-0">
@@ -52,21 +85,9 @@ const Signup = () => {
             ></input>
           </div>
 
-          <button
-            className=" p-4"
-            onClick={() => {
-              if (
-                email.length === 0 ||
-                email.split("@")[email.split("@").length - 1].toLowerCase() !==
-                  "gmail.com" ||
-                password.length === 0 ||
-                password !== redundantPassword
-              ) {
-                return;
-              }
-              location.href = "/";
-            }}
-          >
+          <div className=" text-red-500 animate-pulse">{SignupError ?? ""}</div>
+
+          <button className=" p-4" onClick={SubmitSignUp}>
             sign up
           </button>
 

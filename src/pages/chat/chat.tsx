@@ -1,9 +1,9 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { generateContent } from "../generateAiContent/genAi";
-import upload from "../../assets/upload.png";
 import Account from "./account";
 
 import SubmitIcon from "@mui/icons-material/ArrowUpward";
+import { LoginCheck } from "../auth/supabaseAuth";
 
 interface messageInterface {
   question: string;
@@ -17,7 +17,17 @@ const Chat = () => {
 
   const [memory, setMemory] = useState("");
 
+  const [canUse, setcanUse] = useState(false);
+
   const inputRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    const doTheThing = async () => {
+      setcanUse(await LoginCheck(null, "/login"));
+      console.log(canUse);
+    };
+    doTheThing();
+  }, []);
 
   const isEmpty = (s: string) => {
     for (let i = 0; i < s.length; i++) {
@@ -29,7 +39,7 @@ const Chat = () => {
   };
 
   const updateContent = async () => {
-    if (isEmpty(input)) {
+    if (isEmpty(input) || !canUse) {
       return;
     }
     let tempContent = content;

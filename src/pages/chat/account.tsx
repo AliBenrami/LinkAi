@@ -1,11 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AccountIcon from "@mui/icons-material/AccountCircle";
 import CloseIcon from "@mui/icons-material/Close";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { supabase } from "../auth/supabaseAuth";
 
 const Account = ({ classname }: { classname: string }) => {
   const [open, setopen] = useState(false);
-  const [username, openUsername] = useState(null);
-  const [userID, setuserId] = useState(null);
+  const [username, setUsername] = useState<string | null>(null);
+  const [userID, setUserId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const userinfo = async () => {
+      const { data, error } = await supabase.auth.getUser();
+      if (error) {
+        console.log(error);
+        return;
+      }
+      setUsername(data.user.email ?? null);
+      setUserId(data.user.id ?? null);
+    };
+
+    userinfo();
+  }, []);
 
   const togleOpen = () => {
     setopen(!open);
@@ -20,14 +36,25 @@ const Account = ({ classname }: { classname: string }) => {
   }) => {
     return (
       <div className=" flex flex-row gap-2">
-        <div>{ContentName}:</div>
-        {username === null ? (
-          <div className=" animate-pulse">loading...</div>
+        <div className=" text-[1rem]">{ContentName}:</div>
+        {Content === null ? (
+          <div className=" text-[1rem] animate-pulse">loading...</div>
         ) : (
-          <div>{Content}</div>
+          <div className=" text-[1rem]">{Content}</div>
         )}
       </div>
     );
+  };
+
+  const signout = async () => {
+    const { error } = await supabase.auth.signOut();
+
+    if (error) {
+      console.log("logout error " + error.code);
+      return;
+    }
+
+    location.href = "/login";
   };
 
   const AccountUI = () => {
@@ -42,15 +69,19 @@ const Account = ({ classname }: { classname: string }) => {
           <CloseIcon></CloseIcon>
         </button>
 
-        <div className=" text-[50px]">
+        <div className=" flex flex-col">
           <LoadingContentAnimation
             Content={username}
             ContentName="username"
           ></LoadingContentAnimation>
           <LoadingContentAnimation
             Content={userID}
-            ContentName="userID"
+            ContentName="ID"
           ></LoadingContentAnimation>
+          <div className=" h-[100px]"></div>
+          <button className=" mr-auto ml-auto" onClick={signout}>
+            <LogoutIcon></LogoutIcon>
+          </button>
         </div>
       </div>
     );
