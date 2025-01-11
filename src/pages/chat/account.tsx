@@ -68,6 +68,7 @@ const Account = ({ classname }: { classname: string }) => {
           },
         ])
         .select();
+      data;
       if (error) {
         console.log("error inserting content");
         return;

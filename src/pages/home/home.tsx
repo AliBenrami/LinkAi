@@ -14,7 +14,7 @@ interface contentType {
 const Home = () => {
   const [content, setContent] = useState<contentType>();
   const [loaded, setLoaded] = useState<boolean>(false);
-  const [textbody, setTextBody] = useState<string>();
+  //const [textbody, setTextBody] = useState<string>();
   const [prompt, setPrompt] = useState<string>();
   const [context, setContext] = useState("");
 
@@ -30,8 +30,8 @@ const Home = () => {
         let temp = await generateContent(context + "\nuser:" + (prompt ?? ""));
         setContext(context + "\nuser:" + prompt + "\nai:" + temp);
         setPrompt("");
-        setTextBody(temp);
-        console.log(temp);
+        //setTextBody(temp);
+        //console.log(temp);
         setLoaded(false);
       };
       setTimeout(() => {

@@ -30,7 +30,7 @@ const Login = () => {
       email: email,
       password: password,
     });
-
+    data;
     if (error) {
       setLoginError(error.message);
       return;

@@ -59,6 +59,7 @@ const Chat = () => {
         },
       ])
       .select();
+    data;
     if (error) {
       console.log("error inserting content");
       return;
@@ -136,7 +137,12 @@ const Chat = () => {
         <div className=" animate-pulse flex flex-col-reverse h-screen w-full gap-[1rem] pb-[10rem] pt-[6rem] pl-16 pr-16 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] ">
           <div className="">{[].map(message)}</div>
         </div>
-        <div className=" absolute flex gap-[25px] bottom-[2rem] h-[5rem] justify-center items-center w-[-webkit-fill-available] w-[-moz-available] ">
+        <div
+          className={
+            " absolute flex gap-[25px] bottom-[2rem] h-[5rem] justify-center items-center w-[-webkit-fill-available]" +
+            " w-[-moz-available]"
+          }
+        >
           <textarea className=" w-[50%] p-4 rounded-md resize-none"></textarea>
           <button className=" w-[76px] h-[76px] rounded-[.5cm] flex justify-center items-center">
             <SubmitIcon className=" w-3/4 h-3/4"></SubmitIcon>
@@ -156,7 +162,12 @@ const Chat = () => {
       >
         <div className="">{content.map(message)}</div>
       </div>
-      <div className=" absolute flex gap-[25px] bottom-[2rem] h-[5rem] justify-center items-center w-[-webkit-fill-available] w-[-moz-available] ">
+      <div
+        className={
+          " absolute flex gap-[25px] bottom-[2rem] h-[5rem] justify-center items-center w-[-webkit-fill-available]" +
+          " w-[-moz-available] "
+        }
+      >
         <textarea
           ref={inputRef}
           className=" w-[50%] p-4 rounded-md resize-none"

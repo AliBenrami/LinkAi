@@ -1,7 +1,7 @@
 import Footer from "../footer";
 import Nav from "../nav";
 import RoboPNG from "../../assets/robo.png";
-import Chat from "../chat/chat";
+
 const About = () => {
   return (
     <>
