@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Lownav from "../lowNav";
 import background from "../../assets/appBackground-2.svg";
-import { LoginCheck, supabase } from "./supabaseAuth";
+import { LoginCheck, supabase } from "../supabase";
 
 const Signup = () => {
   const [email, setEmail] = useState<string>("");

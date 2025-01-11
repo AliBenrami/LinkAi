@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = "https://waeonqgtbqdxkrniwxra.supabase.co";
+const supabaseUrl = import.meta.env.VITE_NEXT_PUBLIC_SUPABASE_URL ?? "";
 const supabaseKey = import.meta.env.VITE_SUPABASE_KEY ?? "";
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
@@ -16,7 +16,6 @@ export const LoginCheck = async (
       location.href = notLoginRef;
     }
   } else {
-    console.log(session.data.session?.user);
     if (loginRef) {
       location.href = loginRef;
     }
