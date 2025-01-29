@@ -1,50 +1,50 @@
-# React + TypeScript + Vite
+# LinkAi
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+LinkAi is an AI chat application similar to ChatGPT or Claude.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Cross-Platform Sync**: Access your links from any device.
+- **User-Friendly Interface**: Simple and intuitive design for ease of use.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+To install LinkAi, follow these steps:
 
-- Configure the top-level `parserOptions` property like this:
+1. Clone the repository:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+git clone https://github.com/yourusername/LinkAi.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Navigate to the project directory:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+cd LinkAi
 ```
+
+3. Install the dependencies:
+
+```bash
+npm install
+```
+
+## Usage
+
+To start using LinkAi, run the following command:
+
+```bash
+npm run dev
+```
+
+## Contributing
+
+We welcome contributions! Please read our [Contributing Guidelines](CONTRIBUTING.md) for more details.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+
+## Contact
+
+For any questions or feedback, please reach out to us at [abenrami06@gmail.com](mailto:abenrami06@gmail.com).
