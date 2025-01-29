@@ -1,6 +1,7 @@
-# LinkAi
+# [LinkAi](https://main.d3aq5kcd84geb3.amplifyapp.com/chat)
 
 LinkAi is an AI chat application similar to ChatGPT or Claude.
+
 
 ## Features
 
