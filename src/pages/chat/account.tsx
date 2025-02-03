@@ -76,7 +76,9 @@ const Account = ({ classname }: { classname: string }) => {
         .upsert([
           {
             user_id: (await supabase.auth.getUser()).data.user?.id,
-            messages: [],
+            messages: {
+              content: [],
+            },
           },
         ])
         .select();
