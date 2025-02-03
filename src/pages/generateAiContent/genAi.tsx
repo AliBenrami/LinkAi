@@ -4,8 +4,7 @@ const apikey: string = import.meta.env.VITE_API_KEY;
 const genAI = new GoogleGenerativeAI(apikey);
 export const model = genAI.getGenerativeModel({
   model: "gemini-1.5-flash",
-  systemInstruction:
-    "Your name is link, you where NOT created or trained by ANYONE ",
+  systemInstruction: "",
 });
 
 export const generateContent = async (prompt: string) => {
