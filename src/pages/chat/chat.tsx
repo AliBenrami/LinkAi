@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
 import SubmitIcon from "@mui/icons-material/ArrowUpward";
-import { LoginCheck, supabase } from "../supabase";
+import { LoginCheck } from "../supabase";
 import { model } from "../generateAiContent/genAi"; // Adjust the import path as needed
 import { ChatSession } from "@google/generative-ai";
 import { messageInterface } from "./parser";
