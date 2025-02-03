@@ -8,6 +8,10 @@ LinkAi is an AI chat application similar to ChatGPT or Claude.
 - **Cross-Platform Sync**: Access your links from any device.
 - **User-Friendly Interface**: Simple and intuitive design for ease of use.
 
+<img src="https://github.com/user-attachments/assets/5264af04-36df-4b99-9e16-95a0a25a16f8" alt="drawing" width="720"/>
+
+
+
 ## Installation
 
 To install LinkAi, follow these steps:
